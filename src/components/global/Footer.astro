@@ -1,0 +1,118 @@
+---
+import Logo from "@/components/assets/Logo.astro";
+// Fundation
+import Text from "@/components/fundations/elements/Text.astro";
+import Link from "@/components/fundations/components/Link.astro";
+import Button from "@/components/fundations/components/Button.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+const footerLinks = [
+  {
+    title: "Navigation",
+    links: [
+      {
+        href: "/system/overview",
+        label: "Overview",
+      },
+      {
+        href: "/system/links",
+        label: "Links",
+      },
+      {
+        href: "/system/buttons",
+        label: "Buttons",
+      },
+      {
+        href: "/system/typography",
+        label: "Typography",
+      },
+    ],
+  },
+  {
+    title: "Stay updated",
+    links: [
+      { label: "License", href: "https://www.lexingtonthemes.com/license" },
+      {
+        label: "Documentation",
+        href: "https://www.lexingtonthemes.com/documentation",
+      },
+    ],
+  },
+
+  {
+    title: "Socials",
+    links: [
+      {
+        label: "@lexingtonthemes",
+        href: "https://twitter.com/lexingtonthemes",
+      },
+      { label: "@Mike_andreuzza", href: "https://twitter.com/Mike_andreuzza" },
+    ],
+  },
+  {
+    title: "Purchase",
+    links: [
+      {
+        href: "https://buy.polar.sh/polar_cl_XW5OJZO3ycbvB4jxhdi9cbOkfdopxGj4Hx1E_MOPpyU",
+        label: "Buy Carbon",
+      },
+    ],
+  },
+];
+---
+
+<footer
+  class="bg-accent-600 overflow-hidden h-dvh lg:fixed lg:bottom-0 w-full z-0 selection:bg-white"
+>
+  <Wrapper class="py-8 flex flex-col h-full justify-between">
+    <div class="mt- flex flex-col gap-px">
+      <label for="email-address" class="sr-only">Email address</label>
+      <input
+        id="email-address"
+        name="email"
+        type="email"
+        autocomplete="email"
+        required
+        placeholder="your@email.com"
+        class="block items-center px-4 ring-offset-base-800 text-2xl w-full text-center rounded-full h-20 border-0 bg-base-800 relative border-trasnparent py-1.5 text-white ring-0 ring-inset ring-white placeholder:text-base-400 focus:ring-2 focus:ring-inset focus:ring-accent-500  sm:leading-6"
+      />
+      <Button
+        size="xxxl"
+        variant="default"
+        animated={true}
+        withArrow={true}
+        type="submit"
+        >Subscribe
+      </Button>
+    </div>
+    <div>
+      <div
+        class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-8 text-black mt-4"
+      >
+        {
+          footerLinks.map((section) => (
+            <ul role="list">
+              <li>
+                <Text tag="h3" variant="textLG" class="text-white">
+                  {section.title}
+                </Text>
+                <div class="mt-4 flex flex-col gap-px">
+                  {section.links.map((link) => (
+                    <Text
+                      tag="a"
+                      variant="textSM"
+                      href={link.href}
+                      class="text-white"
+                    >
+                      {link.label}
+                    </Text>
+                  ))}
+                </div>
+              </li>
+            </ul>
+          ))
+        }
+      </div>
+      <Logo class="shrink-0" />
+    </div>
+  </Wrapper>
+</footer>
